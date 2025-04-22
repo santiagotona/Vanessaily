@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Poemas para Vanessa</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="poemas-page">
+  <!-- Corazones flotando -->
+  <div class="floating-hearts">
+    <div class="heart"></div>
+    <div class="heart"></div>
+    <div class="heart"></div>
+    <div class="heart"></div>
+    <div class="heart"></div>
+  </div>
+
+  <div class="stars"></div>
+
+  <div class="poemas-container">
+    <h2 class="titulo-poemas">🌸 Poemas para Vanessa 🌸</h2>
+
+    <div class="carrusel">
+      <div class="poema activo">
+        <h3>🌙 Brillas</h3>
+        <p>
+          Brillas como luna en noche clara,<br>
+          como estrella que nunca se apaga.<br>
+          En tu risa encuentro calma,<br>
+          y en tu voz, el alma habla.
+        </p>
+      </div>
+
+      <div class="poema">
+        <h3>💖 Cada Día</h3>
+        <p>
+          Cada día contigo es un poema,<br>
+          una historia suave y bella.<br>
+          No hay verso más perfecto,<br>
+          que el de tu risa cuando sueñas.
+        </p>
+      </div>
+
+      <div class="poema">
+        <h3>🌹 Sólo Tú</h3>
+        <p>
+          Sólo tú, amor eterno y sincero,<br>
+          llenas mi mundo de luces y cielos.<br>
+          Cada mirada tuya me lleva,<br>
+          a un lugar donde el tiempo se queda.
+        </p>
+      </div>
+    </div>
+
+    <div class="navegacion">
+      <button onclick="cambiarPoema(-1)">⟵ Anterior</button>
+      <button onclick="cambiarPoema(1)">Siguiente ⟶</button>
+    </div>
+
+    <a href="menu.html" class="magic-button">Volver al menú</a>
+  </div>
+
+  <script>
+    let indice = 0;
+    const poemas = document.querySelectorAll('.poema');
+
+    function cambiarPoema(direccion) {
+      poemas[indice].classList.remove('activo');
+      indice = (indice + direccion + poemas.length) % poemas.length;
+      poemas[indice].classList.add('activo');
+    }
+  </script>
+  <audio id="bg-music" autoplay loop>
+    <source src="canciones/bacalar.mp4" type="audio/mpeg" />
+    Tu navegador no soporta audio :(
+  </audio>
+</body>
+</html>
